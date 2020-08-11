@@ -4,4 +4,9 @@ jspm_packages
 
 # Serverless directories
 .serverless
-/package-lock.json
+package-lock.json
+
+
+# intellij files
+.idea
+*.iml
