@@ -10,3 +10,6 @@ package-lock.json
 # intellij files
 .idea
 *.iml
+
+# 숨김 파일들.
+.*
