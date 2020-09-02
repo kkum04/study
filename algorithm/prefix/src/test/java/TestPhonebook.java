@@ -1,9 +1,9 @@
 import org.junit.Assert;
 
-public class Test {
+public class TestPhonebook {
 
   @org.junit.Test
-  public void test() {
+  public void testPhonebook() {
     Solution solution = new Solution();
 
     boolean result = solution.solution(new String[] {
