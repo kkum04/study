@@ -11,5 +11,14 @@ package-lock.json
 .idea
 *.iml
 
-# 숨김 파일들.
-.*
+# gradle
+/**/.gradle
+
+# 알고리즘 아래의 build 파일들
+algorithm/**/build/**
+
+# webpack
+**/.webpack
+
+# dynamodb
+**/.dynamodb
