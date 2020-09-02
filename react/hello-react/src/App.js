@@ -1,16 +1,8 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import MyCompoent from './MyComponent'
 
-function App() {
-  const name = '리액트';
-  return (
-    <>
-      <div className="react">{name}</div>
-      <h1>들여스기가 이상한</h1>
-      <h2>코드</h2>
-      <p>입니다.</p>
-    </>
-  );
+const App = () => {
+  return <MyCompoent />
 }
 
 export default App;
