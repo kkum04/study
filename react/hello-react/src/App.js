@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MyCompoent from './MyComponent'
 
 const App = () => {
-  return <MyCompoent>리액트</MyCompoent>
+  return <MyCompoent name='React' favoriteNumber={1}>리액트</MyCompoent>
 }
 
 export default App;
