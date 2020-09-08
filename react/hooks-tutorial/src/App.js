@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <Average />
+      <Info />
     </div>
   );
 }
