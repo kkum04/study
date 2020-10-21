@@ -36,10 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('제목')
       ),
-      body: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
         children: [
           Container(
             color: Colors.red,
@@ -50,15 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Container(
             color: Colors.green,
-            width: 100,
-            height: 100,
+            width: 80,
+            height: 80,
             padding: const EdgeInsets.all(8.0),
             margin: const EdgeInsets.all(8.0),
           ),
           Container(
             color: Colors.blue,
-            width: 100,
-            height: 100,
+            width: 60,
+            height: 60,
             padding: const EdgeInsets.all(8.0),
             margin: const EdgeInsets.all(8.0),
           ),
