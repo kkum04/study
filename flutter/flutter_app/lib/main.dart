@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var _text = 'Hello';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +34,16 @@ class MyHomePage extends StatelessWidget {
         title: Text('Hello World')
       ),
       body: Text(
-        'Hello World',
+        _text,
         style: TextStyle(fontSize: 40),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _text = 'World';
+          });
+        },
+        child: Icon(Icons.touch_app),
       ),
     );
   }
