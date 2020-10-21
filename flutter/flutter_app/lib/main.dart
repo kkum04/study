@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// 여기까지는 공통코드
 
+
+// 여기서부터 수정
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -31,11 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello World')
+        title: Text('제목')
       ),
-      body: Text(
-        _text,
-        style: TextStyle(fontSize: 40),
+      body: Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+        padding: const EdgeInsets.all(8.0),
+        margin: const EdgeInsets.all(8.0),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
