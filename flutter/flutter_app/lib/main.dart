@@ -36,13 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text('제목')
         ),
         body: Center(
-          child: RaisedButton(
-            child: Text('RaisedButton'),
-            color: Colors.orange,
-            onPressed: () {
-
-            },
-          )
+          child: Image.asset('assets/flutter-lockup.png')
         )
     );
   }
