@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
 }
 // 여기까지는 공통코드
 
-
 // 여기서부터 수정
 class MyHomePage extends StatefulWidget {
   @override
@@ -33,14 +32,32 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('제목')
-      ),
-      body: SingleChildScrollView(
-        child: ListBody(
-          children: items.map((i) => Text('$i')).toList(),
-        ),
-      )
-    );
+        appBar: AppBar(title: Text('제목')),
+        body: GridView.count(
+            crossAxisCount: 2,
+          children: <Widget>[
+            Container(
+              color: Colors.red,
+              width: 100,
+              height: 100,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
+            ),
+            Container(
+              color: Colors.green,
+              width: 100,
+              height: 100,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
+            ),
+            Container(
+              color: Colors.blue,
+              width: 100,
+              height: 100,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
+            ),
+          ],
+        ));
   }
 }
