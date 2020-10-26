@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final items = List.generate(100, (i) => i).toList();
+  var isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +36,37 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
             title: Text('제목')
         ),
-        body: Center(
-          child: Image.asset('assets/flutter-lockup.png')
+        body: ListView(
+          children: [
+            TextField(),
+            TextField(
+              decoration: InputDecoration(
+                labelText: '여기에 입력하세요.'
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: '여기에 입력하세요.'
+              ),
+            ),
+            Checkbox(
+              value: isChecked,
+              onChanged: (value) {
+                setState(() {
+                  isChecked = value;
+                });
+              }
+            ),
+            Switch(
+                value: isChecked,
+                onChanged: (value) {
+                  setState(() {
+                    isChecked = value;
+                  });
+                }
+            )
+          ],
         )
     );
   }
