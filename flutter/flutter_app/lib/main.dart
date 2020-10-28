@@ -14,43 +14,64 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: FirstPage(),
+      routes: {
+        '/first': (context) => FirstPage(),
+        '/second': (context) => SecondPage()
+      },
     );
   }
 }
-// 여기까지는 공통코드
 
-// 여기서부터 수정
+class Person {
+  String name;
+  int age;
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
+  Person(this.name, this.age);
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final _valueList = ['첫 번째', '두 번째', '세 번째'];
-  var _selectedValue = '첫 번째';
+class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('FirstPage build()');
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First')
+      ),
+      body: RaisedButton(
+        child: Text('다음 페이지로'),
+        onPressed: () async {
+          final person = Person('홍길동', 20);
+
+          final result = await Navigator.pushNamed(
+            context,
+            '/second'
+          );
+
+          print(result);
+        },
+      )
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('SecondPage build()');
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Radio / RadioListTile'),
-      ),
-      body: DropdownButton(
-        value: _selectedValue,
-        items: _valueList.map((e) {
-          return DropdownMenuItem(
-            value: e,
-            child: Text(e)
-          );
-        }).toList(),
-        onChanged: (value) {
-          setState(() {
-            _selectedValue = value;
-          });
-        },
-      ),
+        appBar: AppBar(
+            title: Text('Second')
+        ),
+        body: RaisedButton(
+          child: Text('이전 페이지로'),
+          onPressed: () {
+            Navigator.pop(context, 'ok');
+          },
+        )
     );
   }
 }
