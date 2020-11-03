@@ -9,8 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: MyCustomForm(),
+      title: '폼 검증 데모',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('폼 검증 데모')
+        ),
+        body: MyCustomForm(),
+      ),
     );
   }
 }
@@ -21,46 +26,38 @@ class MyCustomForm extends StatefulWidget {
 }
 
 class _MyCustomFormState extends State<MyCustomForm> {
-  final myController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-
-    myController.addListener(_printLastestValue);
-  }
-
-  @override
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
-
-  _printLastestValue() {
-    print("두 번째 text field: ${myController.text}");
-  }
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Text Input 연습"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              onChanged: (text) {
-                print('첫 번째 text field: $text');
-              },
-            ),
-            TextField(
-              controller: myController,
-            ),
-          ],
-        ),
-      ),
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextFormField(
+            validator: (value) {
+              if (value.isEmpty) {
+                return '글자를 입력하세요.';
+              }
+
+              return null;
+            },
+          ),
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: RaisedButton(
+                onPressed: () {
+                  if (_formKey.currentState.validate()) {
+                    Scaffold.of(context)
+                        .showSnackBar(SnackBar(content: Text('검증 완료')));
+                  }
+                },
+                child: Text('검증'),
+              ),
+            )
+        ],
+      )
     );
   }
 }
