@@ -10,68 +10,57 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: FirstPage(),
-      routes: {
-        '/first': (context) => FirstPage(),
-        '/second': (context) => SecondPage()
-      },
+      home: MyCustomForm(),
     );
   }
 }
 
-class Person {
-  String name;
-  int age;
-
-  Person(this.name, this.age);
+class MyCustomForm extends StatefulWidget {
+  @override
+  _MyCustomFormState createState() => _MyCustomFormState();
 }
 
-class FirstPage extends StatelessWidget {
+class _MyCustomFormState extends State<MyCustomForm> {
+  final myController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    myController.addListener(_printLastestValue);
+  }
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
+  _printLastestValue() {
+    print("두 번째 text field: ${myController.text}");
+  }
+
   @override
   Widget build(BuildContext context) {
-    print('FirstPage build()');
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('First')
+        title: Text("Text Input 연습"),
       ),
-      body: RaisedButton(
-        child: Text('다음 페이지로'),
-        onPressed: () async {
-          final person = Person('홍길동', 20);
-
-          final result = await Navigator.pushNamed(
-            context,
-            '/second'
-          );
-
-          print(result);
-        },
-      )
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    print('SecondPage build()');
-
-    return Scaffold(
-        appBar: AppBar(
-            title: Text('Second')
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              onChanged: (text) {
+                print('첫 번째 text field: $text');
+              },
+            ),
+            TextField(
+              controller: myController,
+            ),
+          ],
         ),
-        body: RaisedButton(
-          child: Text('이전 페이지로'),
-          onPressed: () {
-            Navigator.pop(context, 'ok');
-          },
-        )
+      ),
     );
   }
 }
