@@ -8,11 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController, EditDelegate {
+    let imgOn = UIImage(named: "lamp_on.png")
+    let imgOff = UIImage(named: "lamp_off.png")
+    
+    var isOn = true
+    
     @IBOutlet var txMessage: UITextField!
+    @IBOutlet var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        imgView.image = imgOn
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,10 +32,16 @@ class ViewController: UIViewController, EditDelegate {
         
         editViewController.textMessage = txMessage.text!
         editViewController.delegate = self
+        editViewController.isOn = isOn
     }
 
     func didMessageEditDonw(_ controller: EditViewController, message: String) {
         txMessage.text = message
+    }
+    
+    func didImageOnOffDone(_ contoller: EditViewController, isOn: Bool) {
+        self.isOn = isOn
+        imgView.image = isOn ? imgOn : imgOff
     }
 }
 
