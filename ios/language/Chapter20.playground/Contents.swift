@@ -3,20 +3,20 @@ import UIKit
 
 // 코드 20-1 타입의 프로토콜 채택
 //struct SomeStruct : AProtocol, AnotherProtocol {
-//    // 구조체 정의
+    // 구조체 정의
 //}
-//
+
 //class SomeClass : AProtocol, AnotherProtocol {
-//    // 클래스 정의
+    // 클래스 정의
 //}
-//
+
 //enum SomeEnum : AProtocol, AnotherProtocol {
-//    // 열거형 정의
-//}
+    // 열거형 정의
+///}
 
 // 코드 20-2 SuperClass를 상속받는 클래스의 프로토콜 채택
 //class SomeClass: SuperClass, AProtocol, AnotherProtocol {
-//  // Super Class를 먼저 적는다.
+  // Super Class를 먼저 적는다.
 //}
 
 // 코드 20-3 프로퍼티 요구
@@ -30,7 +30,7 @@ import UIKit
 //    static var anotherTypeProperty: Int { get }
 //}
 
-// 코드 20-4 Sendable 프로토콜과 Sendable 프로토콜을 준수하는 MEssage와 Mail 클래스
+// 코드 20-4 Sendable 프로토콜과 Sendable 프로토콜을 준수하는 Message와 Mail 클래스
 //protocol Sendable {
 //    var from: String { get }
 //    var to: String { get }
@@ -142,25 +142,25 @@ import UIKit
 //}
 
 // 코드 20-10 상속받은 클래스의 이니셜라이저 요구 구현 및 재정의
-protocol Named {
-    var name: String { get }
-    
-    init(name: String)
-}
-
-class School {
-    var name: String
-    
-    init(name: String) {
-        self.name = name
-    }
-}
-
-class MiddleSchool: School, Named {
-    required override init(name: String) {
-        super.init(name: name)
-    }
-}
+//protocol Named {
+//    var name: String { get }
+//
+//    init(name: String)
+//}
+//
+//class School {
+//    var name: String
+//
+//    init(name: String) {
+//        self.name = name
+//    }
+//}
+//
+//class MiddleSchool: School, Named {
+//    required override init(name: String) {
+//        super.init(name: name)
+//    }
+//}
 
 // 20-12 프로토콜의 상속
 //protocol Readable {
@@ -186,29 +186,76 @@ class MiddleSchool: School, Named {
 //}
 
 // 20-13 클래스 전용 프로토콜의 정의
-protocol Readable {
-    func read()
-}
-
-protocol Writeable {
-    func write()
-}
-
-protocol ClassOnlyProtocol: class, Readable, Writeable {
-    
-}
-
-class SomeClass: ClassOnlyProtocol {
-    func read() {}
-    func write() {}
-}
+//protocol Readable {
+//    func read()
+//}
+//
+//protocol Writeable {
+//    func write()
+//}
+//
+//protocol ClassOnlyProtocol: class, Readable, Writeable {
+//
+//}
+//
+//class SomeClass: ClassOnlyProtocol {
+//    func read() {}
+//    func write() {}
+//}
 
 //struct SomeStruct: ClassOnlyProtocol {
 //
 //}
 
 
-// 20-16 프로토콜의 선택적 요구
+// 코드 20-14 프로토콜 조합 및 프로토콜, 클래스 조합
+protocol Named {
+    var name: String {get}
+}
+
+protocol Aged {
+    var age: Int {get}
+}
+
+struct Person: Named, Aged {
+    var name: String
+    var age: Int
+}
+
+class Car: Named {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Truck: Car, Aged {
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.age = age
+        super.init(name: name)
+    }
+}
+
+func celebrateBrithday(to celebrator: Named & Aged) {
+    print("생일 축하 \(celebrator.name)")
+}
+
+let yagom = Person(name: "Yagom", age: 99)
+celebrateBrithday(to: yagom)
+
+let myCar = Car(name: "Car")
+//celebrateBrithday(to: myCar)
+
+//var someVariable: Car & Truck & Aged
+
+//var someVariable: Car & Aged
+//someVariable = Truck(name: "Truck", age: <#T##Int#>)
+
+
+// 코드 20-16 프로토콜의 선택적 요구
 import Foundation
 
 @objc protocol Moveable {
@@ -218,12 +265,28 @@ import Foundation
 
 class Tiger: NSObject, Moveable {
     func walk() {
-        
+        print("tiger walk")
     }
 }
 
 class Bird: NSObject, Moveable {
-    func walk() {}
+    func walk() {
+        print("bird walk")
+    }
     
-    func fly() {}
+    func fly() {
+        print("bird fly")
+    }
 }
+
+let tiger = Tiger()
+let bird = Bird()
+
+tiger.walk()
+bird.walk()
+
+var moveable: Moveable = tiger
+moveable.fly?()
+
+moveable = bird
+moveable.fly?()
