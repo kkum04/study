@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Chapter3Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-11T15:04:21" hostname="KenParkui-MacBookPro.local" time="0.082">
+  <properties/>
+  <testcase name="3중 따옴표 문자열" classname="Chapter3Test" time="0.082"/>
+  <system-out><![CDATA[|  //
+| //
+|/ \
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
