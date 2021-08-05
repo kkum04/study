@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "827899292025",
+    "firebase_url": "https://chattest-3dc9d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "chattest-3dc9d",
+    "storage_bucket": "chattest-3dc9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827899292025:android:3e22dda9f56d70978b27a8",
+        "android_client_info": {
+          "package_name": "com.roopre.simpleboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827899292025-m1albfj85t9aad6c42omj0lf9q7k177q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsXerH3xWHTWyo_bPeuhlslHK4LqL25LQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827899292025-m1albfj85t9aad6c42omj0lf9q7k177q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827899292025:android:2a9639776f279bbd8b27a8",
+        "android_client_info": {
+          "package_name": "org.techtown.push"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827899292025-m1albfj85t9aad6c42omj0lf9q7k177q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsXerH3xWHTWyo_bPeuhlslHK4LqL25LQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827899292025-m1albfj85t9aad6c42omj0lf9q7k177q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
