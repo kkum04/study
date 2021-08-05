@@ -1,32 +1,12 @@
-package jpabook.jpashop.domain;
+package jpql;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
 
-@Entity
-public class Member {
-  @Id @GeneratedValue
-  @Column(name = "MEMBER_ID")
-  private Long id;
-  private String name;
+@Embeddable
+public class Address {
   private String city;
   private String street;
   private String zipcode;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
 
   public String getCity() {
     return city;
