@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SampleWidget</string>
+    <string name="person_name">박태환</string>
+</resources>
