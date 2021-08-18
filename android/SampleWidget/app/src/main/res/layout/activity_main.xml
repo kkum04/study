@@ -27,6 +27,6 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:maxLines="1"
-        android:gravity="center"
+        android:gravity="center" />
 
 </LinearLayout>
