@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CoroutineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-07T15:15:23" hostname="KenParkui-MacBookPro.local" time="1.12">
+  <properties/>
+  <testcase name="sumAllTest" classname="CoroutineTest" time="1.12"/>
+  <system-out><![CDATA[00:15:23.597:Thread[Test worker @coroutine#1,5,main]: after async(d1)
+00:15:23.607:Thread[Test worker @coroutine#1,5,main]: after async(d2)
+00:15:23.608:Thread[Test worker @coroutine#1,5,main]: after async(d3)
+00:15:24.619:Thread[Test worker @coroutine#1,5,main]: 1+2+3 = 6
+00:15:24.620:Thread[Test worker @coroutine#1,5,main]: after await & add
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

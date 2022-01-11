@@ -1,0 +1,5 @@
+F00:15:23.597:Thread[Test worker @coroutine#1,5,main]: after async(d1)
+F00:15:23.607:Thread[Test worker @coroutine#1,5,main]: after async(d2)
+F00:15:23.608:Thread[Test worker @coroutine#1,5,main]: after async(d3)
+@00:15:24.619:Thread[Test worker @coroutine#1,5,main]: 1+2+3 = 6
+H00:15:24.620:Thread[Test worker @coroutine#1,5,main]: after await & add
