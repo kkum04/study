@@ -20,30 +20,15 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 3,
-        child: Scaffold(
-            appBar: AppBar(
-              title: const Text('Tab'),
-              bottom: const TabBar(
-                tabs: [
-                  Tab(icon: Icon(Icons.tag_faces)),
-                  Tab(text: "메뉴2"),
-                  Tab(icon: Icon(Icons.info), text: '메뉴3')
-                ],
-              ),
-            ),
-            body: TabBarView(children: [
-              Container(
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.green,
-              ),
-              Container(
-                color: Colors.blue,
-              )
-            ])));
+    return Scaffold(
+      body: const Text("바디"),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.notifications), label: 'Notification')
+      ]),
+    );
   }
 }
 
