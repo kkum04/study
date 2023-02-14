@@ -26,11 +26,12 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
         title: const Text("Hello World"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Container(
-          color: Colors.red,
-        ),
+      body: Column(
+        children: [
+          Expanded(flex: 2, child: Container(color: Colors.red)),
+          Expanded(child: Container(color: Colors.green)),
+          Expanded(child: Container(color: Colors.blue))
+        ],
       )
     );
   }
