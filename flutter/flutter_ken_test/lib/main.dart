@@ -26,12 +26,12 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
         title: const Text("Hello World"),
       ),
-      body: Column(
-        children: [
-          Expanded(flex: 2, child: Container(color: Colors.red)),
-          Expanded(child: Container(color: Colors.green)),
-          Expanded(child: Container(color: Colors.blue))
-        ],
+      body: SizedBox(
+        width: 100,
+        height: 100,
+        child: Container(
+          color: Colors.red
+        )
       )
     );
   }
