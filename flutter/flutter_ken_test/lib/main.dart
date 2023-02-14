@@ -24,30 +24,26 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('제목'),
         ),
-        body: ListView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              trailing: const Icon(Icons.navigate_next),
-              onTap: () => {},
+        body: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            Container(
+              color: Colors.red,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
             ),
-            ListTile(
-              leading: const Icon(Icons.event),
-              title: const Text('Event'),
-              trailing: const Icon(Icons.navigate_next),
-              onTap: () => {},
+            Container(
+              color: Colors.green,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
             ),
-            ListTile(
-              leading: const Icon(Icons.camera),
-              title: const Text('Camera'),
-              trailing: const Icon(Icons.navigate_next),
-              onTap: () => {},
-            )
+            Container(
+              color: Colors.blue,
+              padding: const EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
+            ),
           ],
-        )
-    );
+        ));
   }
 }
 
