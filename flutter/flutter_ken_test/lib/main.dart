@@ -24,26 +24,20 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('제목'),
         ),
-        body: GridView.count(
-          crossAxisCount: 2,
+        body: PageView(
           children: [
             Container(
               color: Colors.red,
-              padding: const EdgeInsets.all(8.0),
-              margin: const EdgeInsets.all(8.0),
             ),
             Container(
               color: Colors.green,
-              padding: const EdgeInsets.all(8.0),
-              margin: const EdgeInsets.all(8.0),
             ),
             Container(
               color: Colors.blue,
-              padding: const EdgeInsets.all(8.0),
-              margin: const EdgeInsets.all(8.0),
-            ),
-          ],
-        ));
+            )
+          ]
+        )
+    );
   }
 }
 
