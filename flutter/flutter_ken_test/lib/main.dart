@@ -27,16 +27,14 @@ class MyHomePage extends StatelessWidget {
           title: const Text("Hello World"),
         ),
         body: Center(
-          child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0)),
-            elevation: 4,
-            child: const SizedBox(
-              width: 200,
-              height: 200,
-            ),
+          child: IconButton(
+            icon: const Icon(Icons.add),
+            color: Colors.red,
+            iconSize: 100,
+            onPressed: () => {},
           ),
-        ));
+        )
+    );
   }
 }
 
