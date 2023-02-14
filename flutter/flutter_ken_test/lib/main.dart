@@ -12,22 +12,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Text("바디"),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.notifications), label: 'Notification')
-      ]),
+        appBar: AppBar(
+        title: const Text("Hello World"),
+      ),
+      body: Center(
+        child: Container(
+          color: Colors.red,
+          width: 100,
+          height: 100,
+        ),
+      )
     );
   }
 }
