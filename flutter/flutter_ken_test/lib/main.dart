@@ -26,15 +26,23 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Hello World"),
         ),
-        body: Center(
-          child: IconButton(
-            icon: const Icon(Icons.add),
-            color: Colors.red,
-            iconSize: 100,
-            onPressed: () => {},
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: const [
+              TextField(),
+              TextField(
+                decoration: InputDecoration(labelText: '여기에 입력하세요.'),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: '여기에 입력하세요'
+                ),
+              )
+            ],
           ),
-        )
-    );
+        ));
   }
 }
 
