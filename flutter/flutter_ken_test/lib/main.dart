@@ -27,7 +27,8 @@ class MyHomePage extends StatefulWidget {
 enum Gender { MAN, WOMEN }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Gender _gender = Gender.MAN;
+  final _valueList = ['첫 번째', '두 번째', '세 번째'];
+  var _selectedValue = '첫 번째';
 
   @override
   Widget build(BuildContext context) {
@@ -38,53 +39,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ListTile(
-                title: const Text('남자'),
-                leading: Radio(
-                  value: Gender.MAN,
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value ?? Gender.MAN;
-                    });
-                  },
-                ),
-              ),
-              ListTile(
-                title: const Text('여자'),
-                leading: Radio(
-                  value: Gender.WOMEN,
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value ?? Gender.WOMEN;
-                    });
-                  },
-                ),
-              ),
-              const SizedBox(height: 40),
-              RadioListTile(title: const Text('남자'), value: Gender.MAN, groupValue: _gender, onChanged: (value) {
-                setState(() {
-                  _gender = value ?? Gender.MAN;
-                });
-              }),
-              RadioListTile(title: const Text('여자'), value: Gender.WOMEN, groupValue: _gender, onChanged: (value) {
-                setState(() {
-                  _gender = value ?? Gender.WOMEN;
-                });
-              })
-            ],
-          )
+          child: DropdownButton(
+            value: _selectedValue,
+            items: _valueList.map((e) {
+              return DropdownMenuItem(
+                value: e,
+                child: Text(e),
+              );
+            }).toList(),
+            onChanged: (value) => {setState(() { _selectedValue = value ?? '첫 번째'; })},
+          ),
         ),
       ),
     );
   }
 }
-
 
 // class MyHomePage extends StatelessWidget {
 //   const MyHomePage({super.key});
