@@ -17,59 +17,71 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Hello World"),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
+      appBar: AppBar(
+        title: const Text("Checkbox / Radio / Switch"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
           child: Column(
-            children: const [
-              TextField(),
-              TextField(
-                decoration: InputDecoration(labelText: '여기에 입력하세요.'),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Checkbox(
+                  value: _isChecked,
+                  onChanged: (value) => setState(() => _isChecked = value ?? false)
               ),
-              TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: '여기에 입력하세요'
-                ),
+              const SizedBox(height: 40),
+              Switch(
+                  value: _isChecked,
+                  onChanged: (value) => setState(() => _isChecked = value)
               )
             ],
-          ),
-        ));
+          )
+        ),
+      ),
+    );
   }
 }
 
-// class MyHomePage extends StatefulWidget {
+
+// class MyHomePage extends StatelessWidget {
 //   const MyHomePage({super.key});
-//
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   var _text = 'Hello';
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Hello World"),
-//       ),
-//       body: Text(
-//         _text,
-//         style: const TextStyle(fontSize: 40)
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () => setState(() => _text = 'World'),
-//         child: const Icon(Icons.add),
-//       ), // This trailing comma makes auto-formatting nicer for build methods.
-//     );
+//         appBar: AppBar(
+//           title: const Text("Hello World"),
+//         ),
+//         body: Padding(
+//           padding: const EdgeInsets.all(20.0),
+//           child: Column(
+//             children: const [
+//               TextField(),
+//               TextField(
+//                 decoration: InputDecoration(labelText: '여기에 입력하세요.'),
+//               ),
+//               TextField(
+//                 decoration: InputDecoration(
+//                     border: OutlineInputBorder(),
+//                     labelText: '여기에 입력하세요'
+//                 ),
+//               )
+//             ],
+//           ),
+//         ));
 //   }
 // }
