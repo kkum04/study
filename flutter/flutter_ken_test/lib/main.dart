@@ -12,7 +12,57 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const FirstPage(),
+      routes: {
+        '/first': (context) => const FirstPage(),
+        '/second': (context) => const SecondPage()
+      },
+    );
+  }
+}
+
+class Person {
+  String name;
+  int age;
+
+  Person(this.name, this.age);
+}
+
+class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First'),
+      ),
+      body: ElevatedButton(
+        child: const Text('다음 페이지로'),
+        onPressed: () async {
+          Navigator.pushNamed(context, '/second');
+        },
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Second'),
+      ),
+      body: ElevatedButton(
+        child: const Text('이전 페이지로'),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      )
     );
   }
 }
