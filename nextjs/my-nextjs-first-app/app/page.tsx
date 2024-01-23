@@ -1,4 +1,4 @@
-export default function Page() {
-  return <h1>Hello, Next.js!</h1>
+export default function page() {
+  return <h1>Hello, Home page!</h1>
 }
 
