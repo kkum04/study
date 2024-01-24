@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Next.js'
 }
 export default function page() {
-  return <div>
+  return <>
     <h1>Hello, Home page!</h1>
     <br/>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -25,6 +25,6 @@ export default function page() {
     <h1>Temp</h1>
     <h1>Temp</h1>
     <h1>Temp</h1>
-  </div>
+  </>
 }
 
