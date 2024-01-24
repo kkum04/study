@@ -1,10 +1,5 @@
-"use client"
 import React from "react";
-import {useRouter} from "next/navigation";
-
 export default function Page() {
-  const router = useRouter();
-
   return <div>
     <h1>Hello, Dashboard Page!</h1>
     <h1>Scroll1</h1>
