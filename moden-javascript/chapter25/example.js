@@ -1,17 +1,18 @@
 class Base {
-  constructor(a, b) {
-    this.a = a;
-    this.b = b;
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHi() {
+    return `Hi! ${this.name}`;
   }
 }
 
 class Derived extends Base {
-  constructor(a, b, c) {
-    super(a, b);
-    this.c = c;
+  sayHi() {
+    return `${super.sayHi()}. how are you doing?`;
   }
-
 }
 
-const derived = new Derived(1, 2, 3);
-console.log(derived);
+const derived = new Derived('Ken');
+console.log(derived.sayHi());
