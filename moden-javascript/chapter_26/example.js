@@ -20,3 +20,27 @@ const person = {
 }
 
 person.sayHi();
+
+function foo(param, ...rest) {
+  console.log(param)
+  console.log(rest)
+}
+
+foo(1,2,3,4,5)
+
+function foo2(...rest) {}
+console.log(foo2.length) // 0
+
+function bar(x, ...rest) {}
+console.log(bar.length); // 1
+
+function baz(x, y, ...rest) {}
+console.log(baz.length); // 2
+
+function logName(name = "Lee") {
+  console.log(name)
+}
+
+logName() // Lee
+logName(undefined) // Lee
+logName(null) // null
