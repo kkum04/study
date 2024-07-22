@@ -40,7 +40,7 @@ console.log(baz.length); // 2
 function logName(name = "Lee") {
   console.log(name)
 }
-
+111
 logName() // Lee
 logName(undefined) // Lee
 logName(null) // null
